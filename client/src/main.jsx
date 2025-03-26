@@ -12,6 +12,12 @@ import {
   RegisterPage,
   SupportPage,
   ServerErrorPage,
+  FormLayout,
+  AadharVerification,
+  DocumentVerification,
+  BankDetails,
+  PersonalInformation,
+  EducationalDetails,
 } from "./Pages/index.js";
 
 
@@ -25,6 +31,14 @@ const router = createBrowserRouter(
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="server-error" element={<ServerErrorPage />} />
+          <Route path="eligibility/" element={<FormLayout/>}>
+                      <Route path="aadhar" element={<AadharVerification />} />
+                      <Route path="payment" element={<ServerErrorPage />} />
+                      <Route path="documents" element={<DocumentVerification />} />
+                      <Route path="personal" element={<PersonalInformation />} />
+                      <Route path="education" element={<EducationalDetails />} />
+                      <Route path="bank" element={<BankDetails />} />
+          </Route>
       </Route>
   )
 );

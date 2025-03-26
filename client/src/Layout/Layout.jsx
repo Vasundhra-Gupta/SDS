@@ -9,7 +9,7 @@ export default function Layout() {
         <div>
             <Header />
             {/* <Sidebar /> */}
-            <main>
+            <main className="h-screen" >
                 <Outlet />
             </main>
             <Footer />
