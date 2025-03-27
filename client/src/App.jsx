@@ -1,9 +1,9 @@
-import Layout from "./Layout/Layout"
+import Layout from "../Components/Layout/Layout"
 function App() {
 
   return (
     <>
-      <div className="text-center">
+      <div className="">
        <Layout/>
       </div>
     </>

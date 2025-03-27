@@ -14,6 +14,8 @@ import EducationalDetails from "./EligibilityFormPages/EducationalDetails.jsx";
 import PaymentPage from "./EligibilityFormPages/PaymentPage.jsx";
 import DonatorDashboard from "./DonatorDashboard.jsx";
 import StudentDashboard from "./StudentDashBoard.jsx";
+import FAQPage from "./FAQPage.jsx";
+import DropoutGuidance from "./DropoutGuidance.jsx";
 
 export {
     AboutPage,
@@ -32,4 +34,6 @@ export {
     PaymentPage,
     DonatorDashboard,
     StudentDashboard,
+    FAQPage,
+    DropoutGuidance,
 }
