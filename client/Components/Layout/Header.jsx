@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X, UserCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,54 +15,71 @@ export default function Header() {
     ];
 
     return (
-        <header className="bg-[#005f99] shadow-lg ">
+        <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between p-4">
-                {/* Mobile Menu Button (Left-most in Mobile View) */}
-                <button
-                    className="md:hidden text-white"
+                {/* Logo */}
+
+                <Link to="/" className="text-2xl font-bold text-blue-600">
+                    EduConnect
+                </Link>
+
+                {/* Mobile Menu Button */}
+                <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <X size={32} /> : <Menu size={32} />}
-                </button>
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </motion.button>
 
-                {/* Logo (Centered in Mobile, Left in Desktop) */}
-                <h1 className="text-3xl font-extrabold text-white md:ml-4">
-                    SDS
-                </h1>
-
-                {/* Navigation Links (Centered in Desktop) */}
-                <nav className="hidden md:flex space-x-8 mx-auto">
-                    {tabs.map((tab) => (
-                        <Link
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex space-x-1 mx-4">
+                    {tabs.map((tab, index) => (
+                        <motion.div
                             key={tab.to}
-                            to={tab.to}
-                            className="text-lg font-medium text-white hover:text-gray-300 transition duration-300"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 * index }}
                         >
-                            {tab.name}
-                        </Link>
+                            <Link
+                                to={tab.to}
+                                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium rounded-lg transition-colors relative group"
+                            >
+                                {tab.name}
+                                <motion.span
+                                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                                    initial={{ width: 0 }}
+                                    whileHover={{ width: "100%" }}
+                                />
+                            </Link>
+                        </motion.div>
                     ))}
                 </nav>
 
-                {/* Right Side - Login/Signup & Avatar (ALWAYS VISIBLE) */}
-                <div className="flex items-center space-x-4">
+                {/* Auth Buttons */}
+                <div className="flex items-center space-x-2">
                     {isLoggedIn ? (
                         <>
-                            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+                            <Link
+                                className="px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-all"
+                                to="/logout"
+                            >
                                 Logout
-                            </button>
-                            <UserCircle size={36} className="text-white" />
+                            </Link>
+                            <UserCircle size={32} className="text-gray-700" />
                         </>
                     ) : (
                         <>
                             <Link
+                                className="px-4 py-2 text-gray-700 font-medium rounded-lg bg-gray-200 hover:bg-gray-100 transition-all"
                                 to="/login"
-                                className="px-4 py-2 bg-gray-200 text-blue-600 rounded-lg hover:bg-gray-300 transition"
                             >
                                 Login
                             </Link>
+
                             <Link
+                                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-sm"
                                 to="/signup"
-                                className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
                             >
                                 Sign Up
                             </Link>
@@ -70,19 +88,33 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Menu (Dropdown) */}
+            {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-[#007acc] text-center py-3 flex flex-col space-y-2">
+                <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="md:hidden bg-white border-t"
+                >
                     {tabs.map((tab) => (
-                        <Link
+                        <motion.div
                             key={tab.to}
-                            to={tab.to}
-                            className="block py-3 text-lg text-white hover:bg-blue-800 transition duration-300"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2 }}
                         >
-                            {tab.name}
-                        </Link>
+                            <Link
+                                to={tab.to}
+                                className="block py-3 px-6 text-gray-700 hover:bg-gray-50 transition-colors"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {tab.name}
+                            </Link>
+                        </motion.div>
                     ))}
-                </div>
+                    
+                </motion.div>
             )}
         </header>
     );
