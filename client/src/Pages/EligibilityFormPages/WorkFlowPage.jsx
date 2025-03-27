@@ -45,12 +45,12 @@ export default function WorkFlowPage() {
         <div className="min-h-screen bg-white py-12 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="flex justify-between items-center px-11 mb-16">
+                <div className="flex flex-col md:flex-row justify-between items-center px-11 mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-left "
+                        className="text-center md:text-left "
                     >
                         <h1 className="text-4xl font-bold text-blue-800  mb-4">
                             Breaking Financial Barriers Together
@@ -62,7 +62,7 @@ export default function WorkFlowPage() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-green-500 text-white font-bold px-8 py-3 rounded-xl shadow-md text-lg"
+                        className="bg-green-500 text-white font-bold mt-10 px-8 py-3 rounded-xl shadow-md text-lg"
                     >
                       <Link to={"/eligibility/personal"}>Start Application</Link>
                       
