@@ -14,6 +14,12 @@ import EducationalDetails from "./EligibilityFormPages/EducationalDetails.jsx";
 import PaymentPage from "./EligibilityFormPages/PaymentPage.jsx";
 import DonatorDashboard from "./DonatorDashboard.jsx";
 import StudentDashboard from "./StudentDashBoard.jsx";
+import DonationWelocomePage from "./Donations/DonationWelocomePage.jsx";
+import DonationBankDetails from "./Donations/DonationBankDetails.jsx";  
+import DonationInputForm from "./Donations/DonationInputForm.jsx";
+import DonationSuggest from "./Donations/DonationSuggest.jsx";
+
+
 
 export {
     AboutPage,
@@ -32,4 +38,8 @@ export {
     PaymentPage,
     DonatorDashboard,
     StudentDashboard,
+    DonationWelocomePage,
+    DonationBankDetails,
+    DonationSuggest,
+    DonationInputForm,
 }
