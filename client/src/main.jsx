@@ -26,10 +26,15 @@ import {
     PaymentPage,
     DonatorDashboard,
     StudentDashboard,
+
     DonationWelocomePage,
     DonationSuggest,
     DonationBankDetails,
     DonationInputForm,
+
+    FAQPage,
+    DropoutGuidance,
+
 } from "./Pages/index.js";
 
 const router = createBrowserRouter(
@@ -53,10 +58,16 @@ const router = createBrowserRouter(
             {/* add routes here */}
           <Route path="donator-dashboard" element={<DonatorDashboard/>}/>
           <Route path="student-dashboard" element={<StudentDashboard/>}/>
+
           <Route path='donation-welcome' element={<DonationWelocomePage/>}/>
           <Route path='donation-bankdetail' element={<DonationBankDetails/>}/>
           <Route path='donation-suggest' element={<DonationSuggest/>}/>
           <Route path="donation-input" element={<DonationInputForm/>}/>
+
+
+          <Route path="faq" element={<FAQPage/>}/>
+          <Route path="dropout" element={<DropoutGuidance/>}/>
+            {/* <Route path='resources' element={}></Route> */}
 
         </Route>
     )
