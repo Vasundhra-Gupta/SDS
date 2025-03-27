@@ -25,7 +25,7 @@ import {
     EducationalDetails,
     PaymentPage,
     DonatorDashboard,
-    StudentDashBoard,
+    StudentDashboard,
 } from "./Pages/index.js";
 
 const router = createBrowserRouter(
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
             </Route>
             {/* add routes here */}
           <Route path="donator-dashboard" element={<DonatorDashboard/>}/>
-          <Route path="student-dashboard" element={<StudentDashBoard/>}/>
+          <Route path="student-dashboard" element={<StudentDashboard/>}/>
             {/* <Route path='resources' element={}></Route> */}
         </Route>
     )

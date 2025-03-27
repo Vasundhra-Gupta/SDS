@@ -1,63 +1,41 @@
 export default function Footer() {
+    const tabs = [
+        { to: "/", name: "Home" },
+        { to: "/about", name: "About" },
+        { to: "/FAQs", name: "faq" },
+        { to: "/support", name: "Support" },
+      ];
     return (
-        <div className="container">
-            <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p className="col-md-4 mb-0 text-body-secondary">
-                    © 2024 Company, Inc
-                </p>
+        <footer className="bg-gray-900 text-gray-300 py-6">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+                
+                {/* Copyright Section */}
+                <p className="text-sm">© 2024 Company, Inc</p>
 
-                <a
-                    href="/"
-                    className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-                >
-                    <svg className="bi me-2" width="40" height="32">
-                        <use xlinkHref="#bootstrap"></use>
-                    </svg>
+                {/* Logo Placeholder (Replace with an actual logo if needed) */}
+                <a href="/" className="text-white text-2xl font-bold">
+                    SDS
                 </a>
 
-                <ul className="nav col-md-4 justify-content-end">
-                    <li className="nav-item">
-                        <a
-                            href="#"
-                            className="nav-link px-2 text-body-secondary"
-                        >
-                            Home
-                        </a>
+                {/* Navigation Links */}
+                <ul className="flex space-x-6 mt-4 md:mt-0">
+                    <li>
+                        <a href="#" className="hover:text-white transition">Home</a>
                     </li>
-                    <li className="nav-item">
-                        <a
-                            href="#"
-                            className="nav-link px-2 text-body-secondary"
-                        >
-                            Features
-                        </a>
+                    <li>
+                        <a href="#" className="hover:text-white transition">Features</a>
                     </li>
-                    <li className="nav-item">
-                        <a
-                            href="#"
-                            className="nav-link px-2 text-body-secondary"
-                        >
-                            Pricing
-                        </a>
+                    <li>
+                        <a href="#" className="hover:text-white transition">Pricing</a>
                     </li>
-                    <li className="nav-item">
-                        <a
-                            href="#"
-                            className="nav-link px-2 text-body-secondary"
-                        >
-                            FAQs
-                        </a>
+                    <li>
+                        <a href="#" className="hover:text-white transition">FAQs</a>
                     </li>
-                    <li className="nav-item">
-                        <a
-                            href="#"
-                            className="nav-link px-2 text-body-secondary"
-                        >
-                            About
-                        </a>
+                    <li>
+                        <a href="#" className="hover:text-white transition">About</a>
                     </li>
                 </ul>
-            </footer>
-        </div>
+            </div>
+        </footer>
     );
 }

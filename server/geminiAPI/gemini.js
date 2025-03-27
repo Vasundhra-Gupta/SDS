@@ -10,10 +10,10 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 async function getResponse() {
     try {
         const prompt = "I am dropping out this year. Understand my problem and suggest me what to do?";
-        
         const response = await model.generateContent(prompt);
-        const result = await response.getResponse();
-        const text = result.candidates[0].content.parts[0].text;
+        const result = await response.response();
+        console.log(result);
+        const text = result.text();
 
         console.log(text);
     } catch (error) {

@@ -13,7 +13,8 @@ import PersonalInformation from "./EligibilityFormPages/PersonalInformation.jsx"
 import EducationalDetails from "./EligibilityFormPages/EducationalDetails.jsx";
 import PaymentPage from "./EligibilityFormPages/PaymentPage.jsx";
 import DonatorDashboard from "./DonatorDashboard.jsx";
-import StudentDashBoard from "./StudentDashBoard.jsx";
+import StudentDashboard from "./StudentDashBoard.jsx";
+
 export {
     AboutPage,
     ContactPage,
@@ -30,5 +31,5 @@ export {
     EducationalDetails,
     PaymentPage,
     DonatorDashboard,
-    StudentDashBoard,
+    StudentDashboard,
 }

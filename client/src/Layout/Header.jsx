@@ -1,78 +1,89 @@
+import React, { useState } from "react";
+import { Menu, X, UserCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export default function Header() {
+    const [isOpen, setIsOpen] = useState(false);
+    const isLoggedIn = false; // Change based on authentication state
+
+    const tabs = [
+        { to: "/", name: "Home" },
+        { to: "/about", name: "About" },
+        { to: "/contact", name: "Contact" },
+        { to: "/support", name: "Support" },
+    ];
+
     return (
-        <>
-            <div className="px-1 py-1  text-center bg-[#007acc] text-white">
-                <h1 className="bg-[#007acc] text-white">Education Support Platform</h1>
-                <div className="col-lg-6 mx-auto">
-                    <p className="lead mb-4">
-                        Your pathway to better educational opportunities
-                    </p>
-                    <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+        <header className="bg-[#005f99] shadow-lg ">
+            <div className="container mx-auto flex items-center justify-between p-4">
+                {/* Mobile Menu Button (Left-most in Mobile View) */}
+                <button
+                    className="md:hidden text-white"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? <X size={32} /> : <Menu size={32} />}
+                </button>
+
+                {/* Logo (Centered in Mobile, Left in Desktop) */}
+                <h1 className="text-3xl font-extrabold text-white md:ml-4">
+                    SDS
+                </h1>
+
+                {/* Navigation Links (Centered in Desktop) */}
+                <nav className="hidden md:flex space-x-8 mx-auto">
+                    {tabs.map((tab) => (
+                        <Link
+                            key={tab.to}
+                            to={tab.to}
+                            className="text-lg font-medium text-white hover:text-gray-300 transition duration-300"
+                        >
+                            {tab.name}
+                        </Link>
+                    ))}
+                </nav>
+
+                {/* Right Side - Login/Signup & Avatar (ALWAYS VISIBLE) */}
+                <div className="flex items-center space-x-4">
+                    {isLoggedIn ? (
+                        <>
+                            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+                                Logout
+                            </button>
+                            <UserCircle size={36} className="text-white" />
+                        </>
+                    ) : (
+                        <>
+                            <Link
+                                to="/login"
+                                className="px-4 py-2 bg-gray-200 text-blue-600 rounded-lg hover:bg-gray-300 transition"
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/signup"
+                                className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
+                            >
+                                Sign Up
+                            </Link>
+                        </>
+                    )}
                 </div>
             </div>
-            <div className="container">
-                <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                    <div className="col-md-3 mb-2 mb-md-0">
-                        <a
-                            href="/"
-                            className="d-inline-flex link-body-emphasis text-decoration-none"
-                        >
-                            <svg
-                                className="bi"
-                                width="40"
-                                height="32"
-                                role="img"
-                                aria-label="Bootstrap"
-                            >
-                                <use xlinkHref="#bootstrap"></use>
-                            </svg>
-                        </a>
-                    </div>
 
-                    <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li>
-                            <a
-                                href="/home"
-                                className="nav-link px-2 link-secondary"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/donation" className="nav-link px-2">
-                                Donation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/scholarship" className="nav-link px-2">
-                                Scholarships
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/loans" className="nav-link px-2">
-                                Loans
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/resources" className="nav-link px-2">
-                                Resources
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div className="col-md-3 text-end">
-                        <button
-                            type="button"
-                            className="btn btn-outline-primary me-2"
+            {/* Mobile Menu (Dropdown) */}
+            {isOpen && (
+                <div className="md:hidden bg-[#007acc] text-center py-3 flex flex-col space-y-2">
+                    {tabs.map((tab) => (
+                        <Link
+                            key={tab.to}
+                            to={tab.to}
+                            className="block py-3 text-lg text-white hover:bg-blue-800 transition duration-300"
                         >
-                            Login
-                        </button>
-                        <button type="button" className="btn btn-primary">
-                            Sign-up
-                        </button>
-                    </div>
-                </header>
-            </div>
-        </>
+                            {tab.name}
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </header>
     );
 }
