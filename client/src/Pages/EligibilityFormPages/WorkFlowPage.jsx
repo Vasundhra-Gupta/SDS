@@ -45,7 +45,7 @@ export default function WorkFlowPage() {
         <div className="min-h-screen bg-white py-12 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="flex justify-between items-center px-10 mb-16">
+                <div className="flex justify-between items-center px-11 mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function WorkFlowPage() {
                 </div>
 
                 {/* Steps Container */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center px-11">
                     {/* Top Row */}
                     <div className="flex flex-col md:flex-row justify-center items-start mb-8 w-full">
                         {steps.slice(0, 3).map((step, index) => (
