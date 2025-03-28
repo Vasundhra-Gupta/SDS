@@ -15,14 +15,8 @@ export default function Header() {
     ];
 
     return (
-        <header className="bg-white shadow-sm sticky top-0 z-50">
-            <div className="container mx-auto flex items-center justify-between p-4">
-                {/* Logo */}
-
-                <Link to="/" className="text-2xl font-bold text-blue-600">
-                    EduConnect
-                </Link>
-
+        <header className="bg-white h-[70px] shadow-sm sticky top-0 z-50 text-lg px-4">
+            <div className="mx-auto flex items-center justify-between p-4">
                 {/* Mobile Menu Button */}
                 <motion.button
                     whileTap={{ scale: 0.95 }}
@@ -31,6 +25,11 @@ export default function Header() {
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </motion.button>
+
+                {/* Logo */}
+                <Link to="/" className="text-2xl font-bold text-blue-600">
+                    EduConnect
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-1 mx-4">
@@ -95,7 +94,7 @@ export default function Header() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="md:hidden bg-white border-t"
+                    className="md:hidden bg-white text-center border-t"
                 >
                     {tabs.map((tab) => (
                         <motion.div
@@ -106,14 +105,13 @@ export default function Header() {
                         >
                             <Link
                                 to={tab.to}
-                                className="block py-3 px-6 text-gray-700 hover:bg-gray-50 transition-colors"
+                                className="block py-3 px-6 text-gray-700 hover:bg-gray-100 transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {tab.name}
                             </Link>
                         </motion.div>
                     ))}
-                    
                 </motion.div>
             )}
         </header>

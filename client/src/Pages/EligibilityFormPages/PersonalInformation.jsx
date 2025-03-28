@@ -1,133 +1,250 @@
-import React, { useRef } from 'react';
-import {useNavigate} from 'react-router-dom';
-export default function PersonalDetails() {
-  const navigate =useNavigate();
-  
-  const studentname = useRef();
-  const dateOfBirth = useRef();
-  const gender = useRef();
-  const contactNo = useRef();
-  const emailAddress = useRef();
-  const AadharNumber = useRef();
-  const ResidentAddress = useRef();
+import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const Name = studentname.current.value;
-    const DOB = dateOfBirth.current.value;
-    const gen = gender.current.value;
-    const Contact = contactNo.current.value;
-    const email = emailAddress.current.value;
-    const aadhar = AadharNumber.current.value;
-    const homeAddress = ResidentAddress.current.value;
+export default function PersonalInformation() {
 
-    studentname.current.value = "";
-    dateOfBirth.current.value = "";
-    gender.current.value = "";
-    contactNo.current.value = "";
-    emailAddress.current.value = "";
-    AadharNumber.current.value = "";
-    ResidentAddress.current.value = "";
+    // Step tracker state
+    const steps = [
+        "Personal Information",
+        "Aadhaar Verification",
+        "Educational Details",
+        "Document Verification",
+        "Bank Details",
+    ];
 
-   
-    
-  
-  };
 
-  return (
-    <div className="max-w-xl mx-auto p-8 bg-gray-100 shadow-lg rounded-lg">
-      <div className="bg-white p-6 rounded-lg shadow">
-        <h1 className="text-2xl font-bold mb-6">Personal Details</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Student Name</label>
-            <input
-              type="text"
-              ref={studentname}
-              className="w-full mt-1 p-2 border rounded-md"
-              placeholder="Enter your name here"
-            />
-          </div>
+    // Form refs
+    const studentname = useRef();
+    const dateOfBirth = useRef();
+    const gender = useRef();
+    const contactNo = useRef();
+    const emailAddress = useRef();
+    const AadharNumber = useRef();
+    const ResidentAddress = useRef();
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Date of Birth</label>
-            <input
-              type="date"
-              ref={dateOfBirth}
-              className="w-full mt-1 p-2 border rounded-md"
-            />
-          </div>
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Form handling logic
+    };
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Gender</label>
-            <div className="flex space-x-4 mt-1">
-              <label className="flex items-center space-x-2">
-                <input type="radio" name="gender" value="Male" ref={gender} required />
-                <span>Male</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="radio" name="gender" value="Female" ref={gender} required />
-                <span>Female</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="radio" name="gender" value="Other" ref={gender} required />
-                <span>Other</span>
-              </label>
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+            },
+        },
+    };
+
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50  px-4"
+        >
+            <div className="max-w-4xl mx-auto">
+                {/* Progress Indicator */}
+                <motion.div
+                    className="flex justify-between items-center mb-12 relative"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                   
+                </motion.div>
+
+                {/* Form Container */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="bg-white p-8 rounded-xl shadow-2xl"
+                >
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-3xl font-bold text-blue-800 mb-2"
+                    >
+                        Personal Details
+                    </motion.h1>
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-gray-600 mb-8"
+                    >
+                        Please provide your personal information to get started
+                    </motion.p>
+
+                    <form onSubmit={handleSubmit}>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <motion.div
+                                variants={itemVariants}
+                                className="mb-6"
+                            >
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Student Name
+                                </label>
+                                <motion.input
+                                    type="text"
+                                    ref={studentname}
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Enter your name here"
+                                    whileFocus={{ scale: 1.01 }}
+                                    required
+                                />
+                            </motion.div>
+
+                            <motion.div
+                                variants={itemVariants}
+                                className="mb-6"
+                            >
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Date of Birth
+                                </label>
+                                <motion.input
+                                    type="date"
+                                    ref={dateOfBirth}
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    whileFocus={{ scale: 1.01 }}
+                                    required
+                                />
+                            </motion.div>
+                        </div>
+
+                        <motion.div variants={itemVariants} className="mb-6">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Gender
+                            </label>
+                            <div className="flex space-x-4 mt-1">
+                                {["Male", "Female", "Other"].map((option) => (
+                                    <motion.label
+                                        key={option}
+                                        className="flex items-center space-x-2"
+                                        whileHover={{ scale: 1.05 }}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            value={option}
+                                            ref={gender}
+                                            className="text-blue-600 focus:ring-blue-500"
+                                            required
+                                        />
+                                        <span>{option}</span>
+                                    </motion.label>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <motion.div
+                                variants={itemVariants}
+                                className="mb-6"
+                            >
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Contact Number
+                                </label>
+                                <motion.input
+                                    type="tel"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    pattern="[0-9]{10}"
+                                    placeholder="Enter 10-digit number"
+                                    ref={contactNo}
+                                    required
+                                    whileFocus={{ scale: 1.01 }}
+                                />
+                            </motion.div>
+
+                            <motion.div
+                                variants={itemVariants}
+                                className="mb-6"
+                            >
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Email Address
+                                </label>
+                                <motion.input
+                                    type="email"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="example@example.com"
+                                    ref={emailAddress}
+                                    required
+                                    whileFocus={{ scale: 1.01 }}
+                                />
+                            </motion.div>
+                        </div>
+
+                        <motion.div variants={itemVariants} className="mb-6">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Aadhar Number
+                            </label>
+                            <motion.input
+                                type="text"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                pattern="[0-9]{12}"
+                                placeholder="Enter 12-digit Aadhar Number"
+                                ref={AadharNumber}
+                                required
+                                whileFocus={{ scale: 1.01 }}
+                            />
+                        </motion.div>
+
+                        <motion.div variants={itemVariants} className="mb-8">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Residential Address
+                            </label>
+                            <motion.textarea
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                rows="4"
+                                placeholder="Enter your full residential address"
+                                ref={ResidentAddress}
+                                required
+                                whileFocus={{ scale: 1.01 }}
+                            ></motion.textarea>
+                        </motion.div>
+
+                        <motion.div
+                            className="flex justify-between"
+                            variants={itemVariants}
+                        >
+                            {/* <motion.button
+                                type="button"
+                                className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium shadow hover:bg-gray-300 transition-colors"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                Back
+                            </motion.button> */}
+                            <motion.button
+                                type="submit"
+                                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-blue-700 transition-colors"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() =>
+                                    setCompletedSteps([...completedSteps, 1])
+                                }
+                            >
+                              <Link to={"/eligibility/aadhar"}>Save & Next</Link>
+                                
+                            </motion.button>
+                        </motion.div>
+                    </form>
+                </motion.div>
             </div>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Contact Number</label>
-            <input
-              type="tel"
-              className="w-full mt-1 p-2 border rounded-md"
-              pattern="[0-9]{10}"
-              placeholder="Enter 10-digit number"
-              ref={contactNo}
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Email Address</label>
-            <input
-              type="email"
-              className="w-full mt-1 p-2 border rounded-md"
-              placeholder="example@example.com"
-              ref={emailAddress}
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Aadhar Number</label>
-            <input
-              type="text"
-              className="w-full mt-1 p-2 border rounded-md"
-              pattern="[0-9]{12}"
-              placeholder="Enter 12-digit Aadhar Number"
-              ref={AadharNumber}
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium">Residential Address</label>
-            <textarea
-              className="w-full mt-1 p-2 border rounded-md"
-              rows="4"
-              placeholder="Enter your full residential address"
-              ref={ResidentAddress}
-              required
-            ></textarea>
-          </div>
-
-          <div className= "bg-blue-500 flex justify-between">
-            <button type="button" className="bg-blue-500 text-black px-4 py-2 rounded-md" >Back</button>
-            <button type="submit" className="bg-blue-500 text-black px-4 py-2 rounded-md" onClick={() => navigate('/educational-details')}>Save & Next</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
+        </motion.div>
+    );
+}
