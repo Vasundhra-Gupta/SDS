@@ -24,14 +24,14 @@ export default function HomePage() {
     const floatingIcons = ["📚", "🎓", "✏️", "🏫", "🧮", "📝", "🔬", "🎒"];
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-blue-50 to-indigo-50 px-6 md:px-12 lg:px-24">
+        <div className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-blue-50 to-indigo-50 px-6 py-10 md:px-12 lg:px-24">
             {/* Left Side - Main Content */}
-            <div className="w-full md:w-1/2 py-12 md:py-24">
+            <div className="w-full md:w-1/2 md:py-24">
                 <motion.h1 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl md:text-5xl font-bold leading-tight text-gray-800"
+                    className="text-4xl pt-10 md:pt-2 md:text-5xl font-bold leading-tight text-gray-800"
                 >
                     Empowering Education Through <span className="text-blue-600">Smart Donations</span>
                 </motion.h1>
@@ -54,13 +54,13 @@ export default function HomePage() {
                     className="mt-8 flex flex-col sm:flex-row gap-4"
                 >
                     <Link
-                        className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all text-center"
+                        className="bg-blue-600  hover:scale-[1.1] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all text-center"
                         to={"/donation-welcome"}
                     >
                         Donate Now
                     </Link>
                     <Link
-                        className="border border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-50 transition-all text-center"
+                        className="border  transition hover:scale-[1.1] border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-50  text-center"
                         to={"/request-workflow"}
                     >
                         Request Support
@@ -68,14 +68,14 @@ export default function HomePage() {
                 </motion.div>
 
                 {/* Features Section */}
-                <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                            className="bg-white p-4 rounded-lg shadow-md"
+                            className="bg-white p-4 rounded-lg shadow-md  transition-all hover:scale-[1.03]"
                             whileHover={{ y: -5 }}
                         >
                             <div className="text-2xl mb-2">{feature.icon}</div>

@@ -9,9 +9,10 @@ export default function Layout() {
         <div>
             <Header />
             {/* <Sidebar /> */}
-            <main className="h-screen" >
+            <main className="min-h-[calc(100% - 70px)] w-full">
                 <Outlet />
             </main>
+            
             <Footer />
         </div>
     );

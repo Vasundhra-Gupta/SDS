@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+// import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
     createBrowserRouter,
@@ -26,15 +26,14 @@ import {
     PaymentPage,
     DonatorDashboard,
     StudentDashboard,
-
     DonationWelocomePage,
     DonationSuggest,
     DonationBankDetails,
     DonationInputForm,
-
     FAQPage,
     DropoutGuidance,
-
+    HowItWorks,
+    SubmissionPage,
 } from "./Pages/index.js";
 
 const router = createBrowserRouter(
@@ -55,20 +54,23 @@ const router = createBrowserRouter(
                 <Route path="education" element={<EducationalDetails />} />
                 <Route path="bank" element={<BankDetails />} />
             </Route>
+            <Route path="request-success" element={<SubmissionPage />} />
             {/* add routes here */}
-          <Route path="donator-dashboard" element={<DonatorDashboard/>}/>
-          <Route path="student-dashboard" element={<StudentDashboard/>}/>
+            <Route path="donator-dashboard" element={<DonatorDashboard />} />
+            <Route path="student-dashboard" element={<StudentDashboard />} />
+            <Route path="request-workflow" element={<HowItWorks />} />
 
-          <Route path='donation-welcome' element={<DonationWelocomePage/>}/>
-          <Route path='donation-bankdetail' element={<DonationBankDetails/>}/>
-          <Route path='donation-suggest' element={<DonationSuggest/>}/>
-          <Route path="donation-input" element={<DonationInputForm/>}/>
+            <Route path="donation-welcome" element={<DonationWelocomePage />} />
+            <Route
+                path="donation-bankdetail"
+                element={<DonationBankDetails />}
+            />
+            <Route path="donation-suggest" element={<DonationSuggest />} />
+            <Route path="donation-input" element={<DonationInputForm />} />
 
-
-          <Route path="faq" element={<FAQPage/>}/>
-          <Route path="dropout" element={<DropoutGuidance/>}/>
+            <Route path="faq" element={<FAQPage />} />
+            <Route path="dropout" element={<DropoutGuidance />} />
             {/* <Route path='resources' element={}></Route> */}
-
         </Route>
     )
 );
