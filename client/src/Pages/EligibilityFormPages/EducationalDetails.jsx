@@ -73,9 +73,9 @@ export default function EducationalDetails() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className=" min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 mt-  px-4"
+            className=" min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 px-4"
         >
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-4xl pb-12 mx-auto">
                 
                 {/* Progress Indicator */}
               
@@ -88,7 +88,7 @@ export default function EducationalDetails() {
             
 
                 <motion.div
-                    className="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden"
+                    className="max-w-4xl mb-4  mx-auto bg-white rounded-xl shadow-2xl overflow-hidden"
                     initial={{ scale: 0.95 }}
                     animate={{ scale: 1 }}
                 >

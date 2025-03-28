@@ -67,6 +67,7 @@ const router = createBrowserRouter(
             />
             <Route path="donation-suggest" element={<DonationSuggest />} />
             <Route path="donation-input" element={<DonationInputForm />} />
+            <Route path="donation-payment" element={<PaymentPage />} />
 
             <Route path="faq" element={<FAQPage />} />
             <Route path="dropout" element={<DropoutGuidance />} />

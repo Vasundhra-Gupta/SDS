@@ -3,6 +3,30 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function DocumentVerification() {
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+            },
+        },
+    };
     const [documents, setDocuments] = useState({
         scholarReport: null,
         admissionLetter: null,
@@ -67,30 +91,40 @@ export default function DocumentVerification() {
         },
     ];
 
-    // Animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    };
+    const inputElements = inputFields.map((field, index) => (
+        <motion.div
+            key={field.id}
+            variants={itemVariants}
+            className="space-y-2"
+        >
+            <label
+                htmlFor={field.name}
+                className="block text-sm font-medium text-gray-700"
+            >
+                {field.label}
+            </label>
+            <motion.div
+                className="border-2 border-dashed border-gray-300 rounded-lg p-4"
+                whileHover={{ borderColor: "#3b82f6" }}
+            >
+                <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.name}
+                    onChange={handleFileChange}
+                    className="w-full"
+                    required={field.required}
+                />
+                {documents[field.name] && (
+                    <p className="text-sm text-green2">
+                        {documents[field.name].name}
+                    </p>
+                )}
+            </motion.div>
+        </motion.div>
+    ));
 
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-            },
-        },
-    };
+    
 
     return (
         <motion.div
@@ -131,38 +165,7 @@ export default function DocumentVerification() {
                     initial="hidden"
                     animate="visible"
                 >
-                    {inputFields.map((field, index) => (
-                        <motion.div
-                            key={field.id}
-                            variants={itemVariants}
-                            className="space-y-2"
-                        >
-                            <label
-                                htmlFor={field.name}
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                {field.label}
-                            </label>
-                            <motion.div
-                                className="border-2 border-dashed border-gray-300 rounded-lg p-4"
-                                whileHover={{ borderColor: "#3b82f6" }}
-                            >
-                                <input
-                                    type={field.type}
-                                    id={field.id}
-                                    name={field.name}
-                                    onChange={handleFileChange}
-                                    className="w-full"
-                                    required={field.required}
-                                />
-                                {documents[field.name] && (
-                                    <p className="text-sm text-green2">
-                                        {documents[field.name].name}
-                                    </p>
-                                )}
-                            </motion.div>
-                        </motion.div>
-                    ))}
+                    {inputElements}
 
                     {/* Navigation Buttons */}
                     <motion.div

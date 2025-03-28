@@ -59,7 +59,7 @@ export default function PersonalInformation() {
             exit={{ opacity: 0 }}
             className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50  px-4"
         >
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl pb-12 mx-auto">
                 {/* Progress Indicator */}
                 <motion.div
                     className="flex justify-between items-center mb-12 relative"

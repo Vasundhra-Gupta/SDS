@@ -20,7 +20,7 @@ export default function Header() {
                 {/* Mobile Menu Button */}
                 <motion.button
                     whileTap={{ scale: 0.95 }}
-                    className="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100"
+                    className="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -32,7 +32,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-1 mx-4">
+                <nav className="hidden lg:flex space-x-1 mx-4">
                     {tabs.map((tab, index) => (
                         <motion.div
                             key={tab.to}
