@@ -1,5 +1,5 @@
 import React from "react";
-//import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   // Framer Motion Animation Variants
@@ -118,7 +118,7 @@ export default function ContactPage() {
           animate="visible"
         >
           <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
-            Send Us a Message
+            Submit your query
           </h2>
           <form className="space-y-6">
             <div>
