@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//register as a counsellor
 export default function CounsellorRegister() {
   const [formData, setFormData] = useState({
     name: "",

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+//counseling webinar page
 export default  function CounselingPlatform  ()  {
   const [activeTab, setActiveTab] = useState("webinars");
   const [showCounselorForm, setShowCounselorForm] = useState(false);
