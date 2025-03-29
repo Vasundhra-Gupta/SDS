@@ -24,14 +24,14 @@ export default function HomePage() {
     const floatingIcons = ["📚", "🎓", "✏️", "🏫", "🧮", "📝", "🔬", "🎒"];
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-blue-50 to-indigo-50 px-6 py-10 md:px-12 lg:px-24">
+        <div className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-blue-50 to-indigo-50 px-6 py-2 md:px-8 lg:px-14">
             {/* Left Side - Main Content */}
-            <div className="w-full md:w-1/2 md:py-24">
+            <div className="w-full md:w-1/2 md:py-14">
                 <motion.h1 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl pt-10 md:pt-2 md:text-5xl font-bold leading-tight text-gray-800"
+                    className="text-4xl pt-10 md:pt-2 md:text-5xl font-bold text-center sm:text-left leading-tight text-gray-800"
                 >
                     Empowering Education Through <span className="text-blue-600">Smart Donations</span>
                 </motion.h1>

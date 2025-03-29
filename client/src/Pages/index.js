@@ -12,7 +12,6 @@ import DocumentVerification from "./EligibilityFormPages/DocumentVerification.js
 import BankDetails from "./EligibilityFormPages/BankDetails.jsx";
 import PersonalInformation from "./EligibilityFormPages/PersonalInformation.jsx";
 import EducationalDetails from "./EligibilityFormPages/EducationalDetails.jsx";
-import PaymentPage from "./EligibilityFormPages/PaymentPage.jsx";
 import HowItWorks from "./EligibilityFormPages/WorkFlowPage.jsx";
 import SubmissionPage from "./EligibilityFormPages/SubmissionPage.jsx";
 
@@ -23,6 +22,7 @@ import DonationWelocomePage from "./Donations/DonationWelocomePage.jsx";
 import DonationBankDetails from "./Donations/DonationBankDetails.jsx";
 import DonationInputForm from "./Donations/DonationInputForm.jsx";
 import DonationSuggest from "./Donations/DonationSuggest.jsx";
+import PaymentPage from "./Donations/PaymentPage.jsx";
 
 import FAQPage from "./FAQPage.jsx";
 import DropoutGuidance from "./DropoutGuidance.jsx";

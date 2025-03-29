@@ -1,207 +1,123 @@
 import React, { useState } from 'react';
-//code
-export default function DonationInputForm() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    contactNumber: '',
-    email: '',
-    address: '',
-    donationAmount: '',
-    donationFrequency: 'One-Time',
-    isAnonymous: false,
-    panCard: null,
-    corporateCertificate: null,
-    taxExemption: '',
-    agreement: false,
-  });
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === 'checkbox') {
-      setFormData({ ...formData, [name]: checked });
-    } else if (type === 'file') {
-      const file = e.target.files[0];
-      // Validate file type and size
-      if (file && (file.type === 'image/png' || file.type === 'image/jpeg') && file.size <= 1 * 1024 * 1024) {
-        setFormData({ ...formData, [name]: file });
-      } else {
-        alert('Please upload a PNG or JPG file smaller than 1MB.');
-      }
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+export default function SimpleDonationForm() {
+  const [selectedAmount, setSelectedAmount] = useState(null);
+  const [customAmount, setCustomAmount] = useState('');
+  const [isCustom, setIsCustom] = useState(false);
+
+  const presetAmounts = [500, 1000, 2000, 5000];
+
+  const handleAmountSelect = (amount) => {
+    setSelectedAmount(amount);
+    setIsCustom(false);
+    setCustomAmount('');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Submitted:', formData);
-    alert('Thank you for registering as a donor!');
+  const handleCustomAmount = (e) => {
+    const value = e.target.value.replace(/\D/g, '');
+    setCustomAmount(value);
+    setIsCustom(true);
+    setSelectedAmount(null);
   };
+
+  const getSelectedAmount = () => {
+    return isCustom ? customAmount : selectedAmount;
+  };
+
+  const isAmountSelected = getSelectedAmount() && getSelectedAmount() > 0;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <form
-        className="bg-white p-8 rounded-lg shadow-md max-w-5xl w-11/12"
-        onSubmit={handleSubmit}
+    <motion.div 
+      className="min-h-screen bg-gray-50 flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div 
+        className="bg-white p-6 sm:p-8 rounded-xl shadow-sm w-full max-w-md"
+        initial={{ y: 20 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <h1 className="text-2xl font-bold mb-6 text-center">Donor Registration Form</h1>
+        <h1 className="text-2xl font-bold text-center mb-8 text-gray-800">
+          Make a Donation
+        </h1>
 
-        {/* Personal / Organization Information */}
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Full Name / Organization Name</label>
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-            required
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Contact Number</label>
-          <input
-            type="text"
-            name="contactNumber"
-            value={formData.contactNumber}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-            required
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Email Address</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-            required
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Address (Optional)</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-          />
-        </div>
-
-        {/* Donation Preferences */}
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Donation Amount (₹)</label>
-          <input
-            type="number"
-            name="donationAmount"
-            value={formData.donationAmount}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-            required
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Frequency of Donation</label>
-          <select
-            name="donationFrequency"
-            value={formData.donationFrequency}
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded"
-          >
-            <option value="One-Time">One-Time</option>
-            <option value="Monthly">Monthly</option>
-            <option value="Quarterly">Quarterly</option>
-            <option value="Annually">Annually</option>
-          </select>
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">
-            <input
-              type="checkbox"
-              name="isAnonymous"
-              checked={formData.isAnonymous}
-              onChange={handleInputChange}
-              className="mr-2"
-            />
-            Anonymous Donation
-          </label>
-        </div>
-
-        {/* Verification */}
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">PAN Card (PNG/JPG, ≤ 1MB)</label>
-          <input
-            type="file"
-            name="panCard"
-            accept=".png, .jpg, .jpeg"
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded bg-gray-100 cursor-pointer"
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">
-            Corporate Donation Certificate (PNG/JPG, ≤ 1MB)
-          </label>
-          <input
-            type="file"
-            name="corporateCertificate"
-            accept=".png, .jpg, .jpeg"
-            onChange={handleInputChange}
-            className="w-2/3 p-2 border rounded bg-gray-100 cursor-pointer"
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">Tax Exemption Receipt?</label>
-          <div className="w-2/3 flex items-center">
-            <label className="mr-4">
-              <input
-                type="radio"
-                name="taxExemption"
-                value="Yes"
-                checked={formData.taxExemption === 'Yes'}
-                onChange={handleInputChange}
-              />{' '}
-              Yes
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="taxExemption"
-                value="No"
-                checked={formData.taxExemption === 'No'}
-                onChange={handleInputChange}
-              />{' '}
-              No
-            </label>
+        <div className="space-y-6">
+          {/* Preset Amounts */}
+          <div>
+            <h2 className="text-sm font-medium text-gray-500 mb-3">Select Amount (₹)</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {presetAmounts.map((amount) => (
+                <motion.button
+                  key={amount}
+                  type="button"
+                  className={`p-3 rounded-lg border-2 text-lg font-medium transition-colors ${
+                    selectedAmount === amount && !isCustom
+                      ? 'border-blue-500 bg-blue-50 text-blue-600'
+                      : 'border-gray-200 hover:border-blue-300'
+                  }`}
+                  onClick={() => handleAmountSelect(amount)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  ₹{amount.toLocaleString()}
+                </motion.button>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Consent & Agreement */}
-        <div className="flex items-center mb-4">
-          <label className="w-1/3 text-sm font-semibold">
-            <input
-              type="checkbox"
-              name="agreement"
-              checked={formData.agreement}
-              onChange={handleInputChange}
-              className="mr-2"
-              required
-            />
-            Terms & Conditions
-          </label>
-        </div>
+          {/* Custom Amount */}
+          <div>
+            <h2 className="text-sm font-medium text-gray-500 mb-3">Or enter custom amount</h2>
+            <motion.div 
+              className={`relative border-2 rounded-lg overflow-hidden ${
+                isCustom ? 'border-blue-500' : 'border-gray-200'
+              }`}
+              whileHover={{ borderColor: isCustom ? '#3b82f6' : '#9ca3af' }}
+            >
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
+              <input
+                type="text"
+                value={customAmount}
+                onChange={handleCustomAmount}
+                placeholder="Enter amount"
+                className="w-full pl-8 p-3 outline-none"
+              />
+            </motion.div>
+          </div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 w-full"
-        >
-          Continue to Payment
-        </button>
-      </form>
-    </div>
+          {/* Next Button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Link 
+              to="/donation-bankdetail" 
+              state={{ amount: getSelectedAmount() }}
+              className={`block text-center py-3 px-6 rounded-lg font-medium ${
+                isAmountSelected
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
+                  : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              {isAmountSelected ? (
+                <motion.span
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  Save & Continue to Payment
+                </motion.span>
+              ) : (
+                'Select an amount to continue'
+              )}
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
