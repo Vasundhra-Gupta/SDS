@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 export default function Register() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -27,10 +26,12 @@ export default function Register() {
       ...prev,
       [name]: files[0]
     }));
+
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     // Add registration logic here
     console.log('Registration data:', formData);
   };
@@ -206,3 +207,4 @@ export default function Register() {
     </div>
   );
 }
+
