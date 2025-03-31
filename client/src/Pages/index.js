@@ -30,6 +30,8 @@ import CounsellorRegister from "./CounsellorPage/CounsellorRegister.jsx";
 import FAQPage from "./FAQPage.jsx";
 import DropoutGuidance from "./DropoutGuidance.jsx";
 
+import ResourceSelector from "./Resources/ResourceSelector.jsx";
+
 export {
     AboutPage,
     ContactPage,
@@ -57,4 +59,5 @@ export {
     HowItWorks,
     CounsellorHome,
     CounsellorRegister,
+    ResourceSelector,
 };

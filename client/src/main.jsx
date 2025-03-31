@@ -36,6 +36,7 @@ import {
     SubmissionPage,
     CounsellorHome,
     CounsellorRegister,
+    ResourceSelector,
 } from "./Pages/index.js";
 
 const router = createBrowserRouter(
@@ -61,19 +62,14 @@ const router = createBrowserRouter(
             <Route path="donator-dashboard" element={<DonatorDashboard />} />
             <Route path="student-dashboard" element={<StudentDashboard />} />
             <Route path="request-workflow" element={<HowItWorks />} />
-
             <Route path="donation-welcome" element={<DonationWelocomePage />} />
-            <Route
-                path="donation-bankdetail"
-                element={<DonationBankDetails />}
-            />
+            <Route path="donation-bankdetail"element={<DonationBankDetails />}/>
             <Route path="donation-suggest" element={<DonationSuggest />} />
             <Route path="donation-input" element={<DonationInputForm />} />
             <Route path="donation-payment" element={<PaymentPage />} />
-
             <Route path="faq" element={<FAQPage />} />
             <Route path="dropout" element={<DropoutGuidance />} />
-            {/* <Route path='resources' element={}></Route> */}
+            <Route path="resource" element={<ResourceSelector />} />
             <Route path="counsellor-home" element={<CounsellorHome/>} />
             <Route path="counsellor-register" element={<CounsellorRegister/>} />
         </Route>
