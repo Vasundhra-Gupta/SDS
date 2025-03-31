@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Menu, X, UserCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+const LOGO =
+    "https://media-hosting.imagekit.io/63d3a656a7124b4a/WhatsApp%20Image%202025-03-31%20at%2013.09.12_7c304388.jpg?Expires=1838015211&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=aLYeftxqc36KxSSGsCppI~4QCdjANi0NZXkanlUmKR9ixKJHTsKJ940oMAVIOAqZygeegiLa8kSb4~8UOrdICDTnh2PlbwVYp93Zq4HXINFNBQBj5YSpbJFnlFe4DvSnZMb9SfihcWH~0k58Jd6UD~NcW54T6-c3hB3ZuChEDvOLbdbQirIZ1AV7E~8fM~g2LE3GzzydiamqwU10bWZw1-VAqqIo7B-z6UZOoo7JBgcLz9vdLQyS6HCGQCpV2D1GDEkpiG2YLjs3cb~vDHtfIxLYvSN3oYia9PZzsNUrtZqrF~yPOiRpC38wYRO0Sglele77lyxKLScJPhUxmCrDkw__";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +12,10 @@ export default function Header() {
     const tabs = [
         { to: "/", name: "Home" },
         { to: "/about", name: "About" },
+        { to: "/counsellor-home", name: "Counsellors" },
+        { to: "/counsellor-home", name: "Scholarships" },
+        { to: "/counsellor-home", name: "Loans" },
         { to: "/contact", name: "Contact" },
-        { to: "/support", name: "Support" },
     ];
 
     return (
@@ -26,16 +30,25 @@ export default function Header() {
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </motion.button>
 
+                <Link to={"/"}>
+                <img
+                    className="w-10 h-10 rounded-full"
+                    src={LOGO}
+                    alt="EduSupport"
+                />
+                </Link>
                 {/* Logo */}
-                <Link to="/" className="text-2xl font-bold text-blue-600">
-                    EduConnect
+                <Link to="/">
+                    <p className="text-2xl font-bold text-blue-600">
+                        EduSupport
+                    </p>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex space-x-1 mx-4">
                     {tabs.map((tab, index) => (
                         <motion.div
-                            key={tab.to}
+                            key={tab.name}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: 0.1 * index }}
