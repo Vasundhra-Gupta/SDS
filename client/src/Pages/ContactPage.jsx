@@ -63,7 +63,7 @@ export default function ContactPage() {
               <p className="text-gray-600">
                 Send us your questions or inquiries at:
               </p>
-              <p className="text-blue-500 font-medium">info@sdsfoundation.org</p>
+              <p className="text-blue-500 font-medium">info@EduSupport.org</p>
             </div>
           </motion.div>
 
@@ -88,7 +88,7 @@ export default function ContactPage() {
               </h2>
               <p className="text-gray-600">Our office is located at:</p>
               <p className="text-blue-500 font-medium">
-                123 SDS Foundation, Chandigarh, India
+                123 EduSupport , Chandigarh, India
               </p>
             </div>
           </motion.div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 Follow Us
               </h2>
               <p className="text-gray-600">
-                Stay connected through our social media platforms:
+                Stay connected through our social media s:
               </p>
               <p className="text-blue-500 font-medium">
                 Facebook | Twitter | Instagram

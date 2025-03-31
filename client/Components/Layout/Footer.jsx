@@ -58,7 +58,7 @@ export default function Footer() {
               className="text-white text-2xl font-bold hover:text-gray-100 transition-colors"
             >
               <span className="sr-only">Home</span>
-              SDS
+              EduSupport
             </Link>
           </motion.div>
 

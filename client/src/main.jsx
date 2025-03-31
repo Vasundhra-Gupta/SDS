@@ -38,7 +38,8 @@ import {
     CounsellorRegister,
     ResourceSelector,
 } from "./Pages/index.js";
-import LoanSuggestionCalculator from "./Pages/LoanSuggestion/LoanSuggestionCalculator.jsx";
+import LoanSuggestionCalculator from "./Pages/LoanAndScholarship/LoanSuggestionCalculator.jsx";
+import ScholarshipFinder from "./Pages/LoanAndScholarship/ScholarshipFinder.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -74,6 +75,7 @@ const router = createBrowserRouter(
             <Route path="counsellor-home" element={<CounsellorHome/>} />
             <Route path="counsellor-register" element={<CounsellorRegister/>} />
             <Route path="loans" element={<LoanSuggestionCalculator/>} />
+            <Route path="scholarships" element={<ScholarshipFinder/>} />
         </Route>
     )
 );

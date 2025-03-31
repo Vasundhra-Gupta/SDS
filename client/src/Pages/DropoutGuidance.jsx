@@ -8,7 +8,7 @@ const demoResponses = [
     },
     {
         issue: "I can't afford school fees.",
-        response: "We recommend applying for financial aid through SDS and looking for scholarships that match your needs.",
+        response: "We recommend applying for financial aid through EduSupport and looking for scholarships that match your needs.",
     },
     {
         issue: "I'm failing my subjects.",

@@ -48,7 +48,7 @@ export default function AboutPage() {
         <motion.div className="bg-white p-6 rounded-lg shadow-lg" variants={fadeInUp}>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
           <p className="text-gray-700">
-            At SDS Foundation, our mission is to support students facing financial hardships by providing educational resources and funding. We believe education is a powerful tool for change and are committed to fostering opportunities for growth.
+            At EduSupport , our mission is to support students facing financial hardships by providing educational resources and funding. We believe education is a powerful tool for change and are committed to fostering opportunities for growth.
           </p>
         </motion.div>
         <motion.div className="bg-white p-6 rounded-lg shadow-lg mt-8" variants={fadeInUp}>
@@ -70,7 +70,7 @@ export default function AboutPage() {
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
           <p className="text-gray-700">
-            Founded in 2015, SDS Foundation was born out of a belief that access to education should never be restricted by financial limitations. Over the years, we've supported countless students in achieving their academic goals, empowering communities and building brighter futures.
+            Founded in 2025, EduSupport  was born out of a belief that access to education should never be restricted by financial limitations. Over the years, we've supported countless students in achieving their academic goals, empowering communities and building brighter futures.
           </p>
           <p className="text-gray-700 mt-4">
             What started as a small initiative has grown into a network of donors, mentors, and visionaries who share the passion for creating equitable educational opportunities for all.
@@ -105,7 +105,7 @@ export default function AboutPage() {
       >
         <h2 className="text-3xl font-bold text-white mb-4">Join Our Mission</h2>
         <p className="text-white text-center max-w-3xl">
-          Whether you're a student, donor, or volunteer, there's a place for you at SDS Foundation. Together, we can make a difference.
+          Whether you're a student, donor, or volunteer, there's a place for you at EduSupport . Together, we can make a difference.
         </p>
         <motion.button
           whileHover={{ scale: 1.1 }}
