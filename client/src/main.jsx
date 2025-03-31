@@ -34,10 +34,9 @@ import {
     DropoutGuidance,
     HowItWorks,
     SubmissionPage,
+    CounsellorHome,
+    CounsellorRegister,
 } from "./Pages/index.js";
-import CounsellorHome from "./Pages/CounsellorPage/CounsellorHome.jsx";
-import CounsellorRegister from "./Pages/CounsellorPage/CounsellorRegister.jsx";
-import CounselingPlatform from "./Pages/CounsellorPage/CounsellorHome.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -75,7 +74,7 @@ const router = createBrowserRouter(
             <Route path="faq" element={<FAQPage />} />
             <Route path="dropout" element={<DropoutGuidance />} />
             {/* <Route path='resources' element={}></Route> */}
-            <Route path="counselling-home" element={<CounselingPlatform/>} />
+            <Route path="counsellor-home" element={<CounsellorHome/>} />
             <Route path="counsellor-register" element={<CounsellorRegister/>} />
         </Route>
     )
