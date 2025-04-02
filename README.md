@@ -91,4 +91,4 @@ It ensures **transparency** by verifying students' eligibility through a **step-
 
 ### 💙 THANK YOU!
 **Regards,**
-#### ✨ GlitchWizards ✨ 🚀
+### ✨ GlitchWizards ✨ 🚀
