@@ -12,6 +12,8 @@ export default function EducationalDetails() {
     const year = useRef();
     const rollNo = useRef();
     const marks = useRef();
+    const [selectedGradeType, setSelectedGradeType] = useState(""); // Initialize state
+
 
     const handleSubmit = (event) => {
         // event.preventDefault();
@@ -215,9 +217,9 @@ export default function EducationalDetails() {
                                         <input
                                             type="radio"
                                             id={type.toLowerCase()}
-                                            name="grade"
+                                            name="gradeType"
                                             value={type}
-                                            ref={marks}
+                                            onChange={(e) => setSelectedGradeType(e.target.value)}
                                             className="text-blue-600 focus:ring-blue-500"
                                             required
                                         />
@@ -225,7 +227,36 @@ export default function EducationalDetails() {
                                     </motion.label>
                                 ))}
                             </div>
+
+                            {/* Conditional Inputs */}
+                            {selectedGradeType === "CGPA" && (
+                                <motion.input
+                                    type="number"
+                                    step="0.1"
+                                    min="0"
+                                    max="10"
+                                    ref={marks}
+                                    placeholder="Enter your CGPA"
+                                    className="w-full p-3 mt-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required
+                                    whileFocus={{ scale: 1.01 }}
+                                />
+                            )}
+                            {selectedGradeType === "Percentage" && (
+                                <motion.input
+                                    type="number"
+                                    step="0.1"
+                                    min="0"
+                                    max="100"
+                                    ref={marks}
+                                    placeholder="Enter your percentage"
+                                    className="w-full p-3 mt-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required
+                                    whileFocus={{ scale: 1.01 }}
+                                />
+                            )}
                         </motion.div>
+
 
                         {/* Buttons */}
                         <motion.div
