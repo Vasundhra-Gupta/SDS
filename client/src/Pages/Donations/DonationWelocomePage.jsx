@@ -36,11 +36,11 @@ export default function DonationWelcomePage() {
             ],
         },
         {
-            type: "OurPlatform",
+            type: "Our",
             reviews: [
                 "Supporting a student's education has been one of the most fulfilling experiences of my life.",
                 "Seeing students achieve their goals because of my contribution keeps me motivated to donate.",
-                "This platform ensures my donations make a real difference—transparent and impactful!",
+                "This  ensures my donations make a real difference—transparent and impactful!",
             ],
         },
     ];
@@ -58,7 +58,7 @@ export default function DonationWelcomePage() {
                 <motion.div className="flex justify-between items-center mb-12" variants={item}>
                     <div>
                         <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                            SDS Foundation
+                            EduSupport 
                         </h1>
                         <p className="text-md sm:text-lg text-gray-600">
                             Empowering students, transforming lives through donations.

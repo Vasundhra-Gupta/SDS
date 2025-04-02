@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const faqs = [
     {
-        question: "How does SDS help students in need?",
-        answer: "SDS connects students with donors who can fund their education, ensuring financial stability through AI-powered matching.",
+        question: "How does EduSupport help students in need?",
+        answer: "EduSupport connects students with donors who can fund their education, ensuring financial stability through AI-powered matching.",
     },
     {
         question: "Is my donation secure?",

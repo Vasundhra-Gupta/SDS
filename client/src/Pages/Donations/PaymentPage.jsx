@@ -6,7 +6,7 @@ export default function PaymentPage() {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(
-            "I just donated to help students via SDS Foundation! Join me in making a change!"
+            "I just donated to help students via EduSupport ! Join me in making a change!"
         );
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);

@@ -13,8 +13,8 @@ export default function Header() {
         { to: "/", name: "Home" },
         { to: "/about", name: "About" },
         { to: "/counsellor-home", name: "Counsellors" },
-        { to: "/counsellor-home", name: "Scholarships" },
-        { to: "/counsellor-home", name: "Loans" },
+        { to: "/scholarships", name: "Scholarships" },
+        { to: "/loans", name: "Loans" },
         { to: "/contact", name: "Contact" },
     ];
 
