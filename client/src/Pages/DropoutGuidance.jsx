@@ -1,44 +1,40 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-const demoResponses = [
-    {
-        issue: "I feel unmotivated to study.",
-        response: "Set small goals, take breaks, and use study techniques like the Pomodoro method to stay focused.",
-    },
-    {
-        issue: "I can't afford school fees.",
-        response: "We recommend applying for financial aid through EduSupport and looking for scholarships that match your needs.",
-    },
-    {
-        issue: "I'm failing my subjects.",
-        response: "Try breaking down your subjects into smaller topics, use online resources like YouTube tutorials, and practice regularly.",
-    },
-];
+import { getGeminiResponse } from "../Services/geminiService";
 
 export default function DropoutGuidance() {
     const [chats, setChats] = useState([]);
     const [userInput, setUserInput] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!userInput.trim()) return;
+        try {
+            setLoading(true);
+            if (!userInput.trim()) return;
 
-        const newChats = [...chats, { type: "user", text: userInput }];
+            const userMessage = { type: "user", text: userInput };
+            setChats((prev) => [...prev, userMessage]);
+            setUserInput("");
+            const response = await getGeminiResponse(userInput);
 
-        const matchedResponse = demoResponses.find((item) =>
-            userInput.toLowerCase().includes(item.issue.toLowerCase())
-        );
-        const botResponse = matchedResponse
-            ? matchedResponse.response
-            : "Our AI is analyzing your issue. Stay tuned!";
+            const botResponse = response
+                ? response
+                : "Our AI is analyzing your issue. Stay tuned!";
 
-        setTimeout(() => {
-            setChats([...newChats, { type: "bot", text: botResponse }]);
-        }, 800);
-
-        setChats(newChats);
-        setUserInput("");
+            setChats((prev) => [...prev, { type: "bot", text: botResponse }]);
+        } catch (error) {
+            setChats((prev) => [
+                ...prev,
+                {
+                    type: "bot",
+                    text: "something went wrong. Please try again later.",
+                },
+            ]);
+            throw error;
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -68,6 +64,19 @@ export default function DropoutGuidance() {
                             {chat.text}
                         </motion.div>
                     ))}
+
+                    {/* 👇 Loading shown as bot message */}
+                    {loading && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="p-4 max-w-xl break-words rounded-lg shadow-md bg-gray-300 text-gray-800 self-start flex items-center gap-2"
+                        >
+                            <span className="animate-spin h-5 w-5 border-2 border-blue-400 border-t-transparent rounded-full"></span>
+                            AI is thinking...
+                        </motion.div>
+                    )}
                 </div>
 
                 {/* Input Box */}

@@ -15,6 +15,7 @@ export default function Header() {
         { to: "/counsellor-home", name: "Counsellors" },
         { to: "/scholarships", name: "Scholarships" },
         { to: "/loans", name: "Loans" },
+        { to: "/resource", name: "Resources" },
         { to: "/contact", name: "Contact" },
     ];
 
