@@ -11,7 +11,7 @@ export default function AdminDashboard() {
                     <p className="text-3xl font-bold text-blue-600">15</p>
                 </div>
                 <div className="bg-white p-6 shadow-md rounded-lg">
-                    <h3 className="text-lg font-bold text-gray-700">Total Students</h3>
+                    <h3 className="text-lg font-bold text-gray-700">Total Students Applied</h3>
                     <p className="text-3xl font-bold text-blue-600">230</p>
                 </div>
                 <div className="bg-white p-6 shadow-md rounded-lg">

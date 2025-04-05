@@ -9,7 +9,7 @@ export default function Layout() {
         <div>
             <Header />
             {/* <Sidebar /> */}
-            <main className="min-h-[calc(100% - 70px)] w-full">
+            <main className="px-4 min-h-[calc(100% - 70px)] w-full">
                 <Outlet />
             </main>
             

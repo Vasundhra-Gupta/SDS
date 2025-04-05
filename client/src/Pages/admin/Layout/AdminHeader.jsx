@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-export default function AdminLayout() {
+export default function AdminHeader() {
     return (
         <div className="flex h-screen bg-gray-100">
             {/* Sidebar */}
@@ -11,13 +11,13 @@ export default function AdminLayout() {
                     <Link to="/admin/dashboard" className="block hover:bg-blue-600 p-3 rounded">
                         Dashboard
                     </Link>
-                    <Link to="/admin/counselors" className="block hover:bg-blue-600 p-3 rounded">
+                    <Link to="/admin/counselor" className="block hover:bg-blue-600 p-3 rounded">
                         Manage Counselors
                     </Link>
-                    <Link to="/admin/students" className="block hover:bg-blue-600 p-3 rounded">
+                    <Link to="/admin/student" className="block hover:bg-blue-600 p-3 rounded">
                         Student Verification
                     </Link>
-                    <Link to="/admin/funds" className="block hover:bg-blue-600 p-3 rounded">
+                    <Link to="/admin/fund" className="block hover:bg-blue-600 p-3 rounded">
                         Fund Tracking
                     </Link>
                     <Link to="/admin/settings" className="block hover:bg-blue-600 p-3 rounded">
