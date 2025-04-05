@@ -37,6 +37,14 @@ import {
     CounsellorHome,
     CounsellorRegister,
     ResourceSelector,
+    AdminLogin,
+    AdminDashboard,
+    AdminLayout,
+    CounselorManagement,
+    FundTracking,
+    StudentVerification,
+
+    
 } from "./Pages/index.js";
 import LoanSuggestionCalculator from "./Pages/LoanAndScholarship/LoanSuggestionCalculator.jsx";
 import ScholarshipFinder from "./Pages/LoanAndScholarship/ScholarshipFinder.jsx";
@@ -76,6 +84,12 @@ const router = createBrowserRouter(
             <Route path="counsellor-register" element={<CounsellorRegister/>} />
             <Route path="loans" element={<LoanSuggestionCalculator/>} />
             <Route path="scholarships" element={<ScholarshipFinder/>} />
+            <Route path="admin-dashboard " element={<AdminDashboard/>} />
+            <Route path="admin-layout" element={<AdminLayout/>} />
+            <Route path="admin-login" element={<AdminLogin/>} />
+            <Route path="admin-fund" element={<FundTracking/>} />
+            <Route path="admin-student" element={<StudentVerification/>} />
+            <Route path="admin-counselor" element={<CounselorManagement/>} />
         </Route>
     )
 );
