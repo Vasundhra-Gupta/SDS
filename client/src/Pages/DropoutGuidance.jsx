@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { getGeminiResponse } from "../Services/geminiService";
 
@@ -6,6 +6,11 @@ export default function DropoutGuidance() {
     const [chats, setChats] = useState([]);
     const [userInput, setUserInput] = useState("");
     const [loading, setLoading] = useState(false);
+    const bottomRef = useRef(null);
+
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [chats]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,12 +48,12 @@ export default function DropoutGuidance() {
                 <h2 className="text-4xl font-bold text-blue-700 text-center mb-6">
                     Dropout Guidance Chat 💬
                 </h2>
-                <p className="text-lg text-gray-600 text-center mb-4">
-                    Share your problem here, and get guidance.
-                </p>
 
                 {/* Chat Box */}
                 <div className="flex-1 overflow-y-auto max-h-[500px] space-y-4 p-4 border rounded-lg bg-gray-50 shadow-inner">
+                    <p className="text-lg text-gray-600 text-center mb-4">
+                        Share your problem here, and get guidance.
+                    </p>
                     {chats.map((chat, index) => (
                         <motion.div
                             key={index}
@@ -65,18 +70,19 @@ export default function DropoutGuidance() {
                         </motion.div>
                     ))}
 
-                    {/* 👇 Loading shown as bot message */}
                     {loading && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.3 }}
-                            className="p-4 max-w-xl break-words rounded-lg shadow-md bg-gray-300 text-gray-800 self-start flex items-center gap-2"
+                            className="p-4 max-w-xl break-words rounded-lg shadow-md self-start flex items-center gap-2"
                         >
                             <span className="animate-spin h-5 w-5 border-2 border-blue-400 border-t-transparent rounded-full"></span>
-                            AI is thinking...
                         </motion.div>
                     )}
+
+                    {/* Scroll anchor */}
+                    <div ref={bottomRef} />
                 </div>
 
                 {/* Input Box */}
