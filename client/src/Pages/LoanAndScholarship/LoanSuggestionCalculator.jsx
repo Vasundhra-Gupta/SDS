@@ -165,13 +165,13 @@ const loanData = [
   {
     name: "PNB Udaan / Saraswati",
     description: "For Indian & overseas education with attractive interest rates.",
-    link: "https://www.pnbindia.in/education-loan.html",
+    link: "https://www.pnbindia.in/education.aspx",
     color: "purple"
   },
   {
     name: "Canara Vidya Loan",
     description: "For Indian students in technical/professional courses.",
-    link: "https://canarabank.com/User_page.aspx?othlink=155",
+    link: "https://canarabank.com/vidya-turant",
     color: "yellow"
   },
   {
