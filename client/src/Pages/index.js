@@ -32,8 +32,9 @@ import DropoutGuidance from "./DropoutGuidance.jsx";
 
 import ResourceSelector from "./Resources/ResourceSelector.jsx";
 
+import AdminLayout from "./admin/Layout/AdminLayout.jsx"
 import AdminDashboard from "./admin/AdminDashboard.jsx";
-import AdminLayout from "./admin/AdminLayout.jsx";
+import AdminSettings from "./admin/AdminSettings.jsx";
 import AdminLogin from "./admin/AdminLogin.jsx";
 import FundTracking from "./admin/FundTracking.jsx";
 import StudentVerification from "./admin/StudentVerification.jsx";
@@ -71,6 +72,7 @@ export {
     AdminLogin,
     AdminDashboard,
     AdminLayout,
+    AdminSettings,
     CounselorManagement,
     FundTracking,
     StudentVerification,
