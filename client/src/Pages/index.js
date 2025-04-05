@@ -32,6 +32,14 @@ import DropoutGuidance from "./DropoutGuidance.jsx";
 
 import ResourceSelector from "./Resources/ResourceSelector.jsx";
 
+import AdminDashboard from "./admin/AdminDashboard.jsx";
+import AdminLayout from "./admin/AdminLayout.jsx";
+import AdminLogin from "./admin/AdminLogin.jsx";
+import FundTracking from "./admin/FundTracking.jsx";
+import StudentVerification from "./admin/StudentVerification.jsx";
+import CounselorManagement from "./admin/CounselorManagement.jsx";
+
+
 export {
     AboutPage,
     ContactPage,
@@ -60,4 +68,10 @@ export {
     CounsellorHome,
     CounsellorRegister,
     ResourceSelector,
+    AdminLogin,
+    AdminDashboard,
+    AdminLayout,
+    CounselorManagement,
+    FundTracking,
+    StudentVerification,
 };
