@@ -167,12 +167,13 @@ export default function ContactPage() {
               ></textarea>
             </div>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              type="submit"
-              className="w-56 px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mx-auto block"
-            >
-              Submit
-            </motion.button>
+  whileHover={{ scale: 1.05 }}
+  type="submit"
+  className="w-full sm:w-56 px-4 py-2 text-sm sm:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mx-auto block transition-all duration-300"
+>
+  Submit
+</motion.button>
+
           </form>
         </motion.div>
       </motion.div>

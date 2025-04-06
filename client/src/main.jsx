@@ -35,7 +35,6 @@ import {
     HowItWorks,
     SubmissionPage,
     CounsellorHome,
-    CounsellorRegister,
     ResourceSelector,
     AdminLogin,
     AdminDashboard,
@@ -85,10 +84,6 @@ const router = createBrowserRouter(
             <Route path="dropout" element={<DropoutGuidance />} />
             <Route path="resource" element={<ResourceSelector />} />
             <Route path="counsellor-home" element={<CounsellorHome />} />
-            <Route
-                path="counsellor-register"
-                element={<CounsellorRegister />}
-            />
             <Route path="loans" element={<LoanSuggestionCalculator />} />
             <Route path="scholarships" element={<ScholarshipFinder />} />
             <Route path="admin/" element={<AdminLayout />}>
