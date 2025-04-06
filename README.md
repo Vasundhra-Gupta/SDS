@@ -4,7 +4,8 @@
 ## 💡 Overview
 **EduSupport** is a comprehensive AI-driven platform designed to help economically weaker students overcome financial barriers to education. The platform connects *needy students* with *donors*, offers *scholarship and loan guidance*, enables *secure fund distribution*, and integrates *emotional & career support* to minimize dropouts and maximize student success.
 
-**EduSupport follows a modern 3-tier architecture. The frontend, built in React with Vite, interacts with an Express.js backend. The server handles business logic, authentication, academic data processing, and AI interactions using the Gemini API. All data is stored securely in a MongoDB database. Donations are processed via GPay or UPI, ensuring secure transactions.**
+EduSupport follows a modern 3-tier architecture. The frontend, built in React with Vite, interacts with an Express.js bacjend. The server handles business logic, authentication , academic data prpcessing, and AI interactions using the Gemini API. All data is stored securely in a MongoDB database. Donations are processed via GPay or UPI, ensuring secure transactions.
+
 ---
 
 ## 🎯 Mission
