@@ -70,7 +70,7 @@ EduSupport follows a modern 3-tier architecture. The frontend, built in React wi
 - Aadhaar-based identity verification
 - Document validation using AI
 - All donations are tracked and visible to donors
-- Platform takes 0% commission; 5% is reinvested into platform and student support
+- 5% is reinvested into platform and student support
 
 ---
 
