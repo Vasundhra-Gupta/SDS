@@ -55,13 +55,17 @@ export default function DonationWelcomePage() {
             {/* Left content section */}
             <div className="flex-1 p-6 sm:p-8 overflow-y-auto">
                 {/* Header */}
-                <motion.div className="flex justify-between items-center mb-12" variants={item}>
+                <motion.div
+                    className="flex justify-between items-center mb-12"
+                    variants={item}
+                >
                     <div>
                         <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                            EduSupport 
+                            EduSupport
                         </h1>
                         <p className="text-md sm:text-lg text-gray-600">
-                            Empowering students, transforming lives through donations.
+                            Empowering students, transforming lives through
+                            donations.
                         </p>
                     </div>
                     <Link to="/donation-input">
@@ -173,7 +177,7 @@ export default function DonationWelcomePage() {
             </div>
 
             {/* Right vertical student section */}
-            <motion.div 
+            <motion.div
                 className="w-96 bg-white p-6 shadow-lg overflow-y-scroll h-screen hidden lg:block"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -190,17 +194,18 @@ export default function DonationWelcomePage() {
                             B.Sc. in Physics, Final Year
                         </p>
                         <p className="text-gray-700 mt-2">
-                            "Achieved 90% in his exams and is currently
-                            working on a research project in quantum
-                            mechanics."
+                            "Achieved 90% in his exams and is currently working
+                            on a research project in quantum mechanics."
                         </p>
                         <p className="text-gray-600 mt-2">
-                            Needs funds to pay for tuition and living
-                            expenses to complete his final year.
+                            Needs funds to pay for tuition and living expenses
+                            to complete his final year.
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
-                            Donate to John
-                        </button>
+                        <Link to={"/donation-input"}>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
+                                Donate to John
+                            </button>
+                        </Link>
                     </div>
                     {/* Additional student cards */}
                     <div className="bg-gray-50 p-4 rounded-lg shadow">
@@ -215,17 +220,17 @@ export default function DonationWelcomePage() {
                             actively participating in community service."
                         </p>
                         <p className="text-gray-600 mt-2">
-                            Needs support to purchase educational materials
-                            and cover housing costs.
+                            Needs support to purchase educational materials and
+                            cover housing costs.
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
-                            Donate to Alice
-                        </button>
+                        <Link to={"/donation-input"}>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
+                                Donate to Alice
+                            </button>
+                        </Link>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg shadow">
-                        <h3 className="text-lg font-bold mb-2">
-                            Raj Sharma
-                        </h3>
+                        <h3 className="text-lg font-bold mb-2">Raj Sharma</h3>
                         <p className="text-sm text-gray-500">
                             Diploma in Computer Science, Final Year
                         </p>
@@ -237,14 +242,14 @@ export default function DonationWelcomePage() {
                             Needs funds to pay for final semester fees and
                             resources for his capstone project.
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
-                            Donate to Raj
-                        </button>
+                        <Link to={"/donation-input"}>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
+                                Donate to Raj
+                            </button>
+                        </Link>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg shadow">
-                        <h3 className="text-lg font-bold mb-2">
-                            Emily Clark
-                        </h3>
+                        <h3 className="text-lg font-bold mb-2">Emily Clark</h3>
                         <p className="text-sm text-gray-500">
                             M.Sc. in Biology, First Year
                         </p>
@@ -256,29 +261,30 @@ export default function DonationWelcomePage() {
                             Needs funds to cover laboratory fees and living
                             expenses for her master's program.
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
-                            Donate to Emily
-                        </button>
+                        <Link to={"/donation-input"}>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
+                                Donate to Emily
+                            </button>
+                        </Link>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg shadow">
-                        <h3 className="text-lg font-bold mb-2">
-                            Soham Patel
-                        </h3>
+                        <h3 className="text-lg font-bold mb-2">Soham Patel</h3>
                         <p className="text-sm text-gray-500">
                             B.Tech. in Electrical Engineering, Third Year
                         </p>
                         <p className="text-gray-700 mt-2">
-                            "Ranked top of his class and actively
-                            contributes to his college's solar energy
-                            initiative."
+                            "Ranked top of his class and actively contributes to
+                            his college's solar energy initiative."
                         </p>
                         <p className="text-gray-600 mt-2">
                             Needs support to attend an upcoming national
                             conference and pay tuition fees.
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
-                            Donate to Soham
-                        </button>
+                        <Link to={"/donation-input"}>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4 w-full">
+                                Donate to Soham
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </motion.div>
