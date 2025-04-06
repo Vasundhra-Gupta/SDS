@@ -1,22 +1,26 @@
 {
-  "dependencies": {
-    "@google/genai": "^0.6.1",
-    "bcryptjs": "^3.0.2",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.13.1",
-    "nodemon": "^3.1.9"
-  },
-  "name": "server",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
-  },
-  "author": "vasundhra gupta",
-  "license": "ISC",
-  "description": ""
+    "dependencies": {
+        "@google/genai": "^0.6.1",
+        "bcryptjs": "^3.0.2",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.13.1",
+        "nodemon": "^3.1.9"
+    },
+    "name": "server",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon server.js",
+        "start": "node server.js", 
+        "install-client": "cd ../client && npm install",
+        "build-client": "cd ../client && npm run build",
+        "postinstall": "npm run install-client && npm run build-client"
+    },
+    "author": "vasundhra gupta",
+    "license": "ISC",
+    "description": ""
 }

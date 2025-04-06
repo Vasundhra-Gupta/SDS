@@ -1,12 +1,13 @@
 import AdminHeader from "./AdminHeader";
 import { Outlet } from "react-router-dom";
+
 export default function AdminLayout() {
     return (
         <div>
             <AdminHeader />
-            <div className="mt-10px">
+            <main className="p-6">
                 <Outlet />
-            </div>
+            </main>
         </div>
     );
 }

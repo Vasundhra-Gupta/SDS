@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const tabs = [
@@ -9,92 +10,62 @@ export default function Footer() {
     { to: "/support", name: "Support" },
   ];
 
-  const footerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.3 }
-    }),
-    hover: { scale: 1.05, color: "#ffffff" }
-  };
-
   return (
-    <motion.footer
-      className="bg-gray-900 text-gray-300 py-8 px-4 sm:px-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={footerVariants}
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Copyright Section */}
-          <motion.p 
-            className="text-sm order-2 md:order-1"
-            custom={0}
-            variants={itemVariants}
-          >
-            © {new Date().getFullYear()} Company, Inc. All rights reserved.
-          </motion.p>
-
-          {/* Logo */}
-          <motion.div
-            className="order-1 md:order-2"
-            custom={1}
-            variants={itemVariants}
-          >
-            <Link 
-              to="/" 
-              className="text-white text-2xl font-bold hover:text-gray-100 transition-colors"
-            >
-              <span className="sr-only">Home</span>
-              EduSupport
-            </Link>
-          </motion.div>
-
-          {/* Navigation Links */}
-          <motion.ul 
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 order-3"
-            custom={2}
-            variants={itemVariants}
-          >
-            {tabs.map((tab, index) => (
-              <motion.li 
-                key={tab.to}
-                custom={index + 2}
-                variants={itemVariants}
-                whileHover="hover"
-              >
-                <Link
-                  to={tab.to}
-                  className="text-gray-300 hover:text-white transition-colors capitalize text-sm sm:text-base"
-                >
-                  {tab.name}
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
+    <footer className="bg-[#1d87d2] text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
+        {/* Logo & Description */}
+        <div>
+          <h2 className="text-xl font-bold tracking-wide mb-3">EduSupport</h2>
+          <p className="text-gray-200 leading-relaxed">
+            We are a youth initiative focused on supporting students through the power of <span className="font-semibold">education</span> and <span className="font-semibold">empowerment</span>.
+          </p>
         </div>
 
-        {/* Additional Footer Content */}
-        <motion.div 
-          className="mt-8 pt-6 border-t border-gray-800 text-center text-xs text-gray-500"
-          custom={tabs.length + 2}
-          variants={itemVariants}
-        >
-          <p>By using our service, you agree to our Terms of Service and Privacy Policy</p>
-        </motion.div>
+        {/* Useful Links */}
+        <div>
+          <h3 className="text-white font-semibold mb-3 uppercase tracking-wide">Useful Links</h3>
+          <ul className="space-y-2">
+            {tabs.map(link => (
+              <li key={link.to}>
+                <Link to={link.to} className="hover:text-blue-300 transition-colors">{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="text-white font-semibold mb-3 uppercase tracking-wide">Contact</h3>
+          <ul className="space-y-2 text-gray-200">
+            <li className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-blue-300" /> Chandigarh India
+            </li>
+            <li className="flex items-center gap-2">
+              <FaPhoneAlt className="text-blue-300" /> 8847586xxx4, 89687544xxx
+            </li>
+            <li className="flex items-center gap-2">
+              <FaEnvelope className="text-blue-300" /> info@edusupport.org
+            </li>
+          </ul>
+        </div>
+
+        {/* Newsletter */}
+        <div>
+          <h3 className="text-white font-semibold mb-3 uppercase tracking-wide">Join us</h3>
+          <p className="text-gray-200">Subscribe for updates & campaigns.</p>
+          {/* Add newsletter form here if needed */}
+        </div>
       </div>
-    </motion.footer>
+
+      {/* Bottom Strip */}
+      <div className="border-t border-blue-800 mt-10 pt-4 text-center text-gray-300 text-xs flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; {new Date().getFullYear()} <span className="font-semibold">EduSupport</span>. All rights reserved.</p>
+        <div className="flex gap-4 mt-2 md:mt-0 text-lg">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-white"><FaFacebook /></a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white"><FaTwitter /></a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white"><FaInstagram /></a>
+        </div>
+      </div>
+    </footer>
   );
 }
