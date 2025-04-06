@@ -44,6 +44,8 @@ import {
     FundTracking,
     StudentVerification,
     AdminSettings,
+    PublicDonationReport,
+
 } from "./Pages/index.js";
 import LoanSuggestionCalculator from "./Pages/LoanAndScholarship/LoanSuggestionCalculator.jsx";
 import ScholarshipFinder from "./Pages/LoanAndScholarship/ScholarshipFinder.jsx";
@@ -90,13 +92,14 @@ const router = createBrowserRouter(
             <Route path="loans" element={<LoanSuggestionCalculator />} />
             <Route path="scholarships" element={<ScholarshipFinder />} />
             <Route path="admin/" element={<AdminLayout />}>
-                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="" element={<AdminDashboard />} />
                 <Route path="login" element={<AdminLogin />} />
                 <Route path="fund" element={<FundTracking />} />
                 <Route path="student" element={<StudentVerification />} />
                 <Route path="counselor" element={<CounselorManagement />} />
                 <Route path="settings" element={<AdminSettings />} />
             </Route>
+            <Route path="publicdonationreport" element={<PublicDonationReport />} />
         </Route>
     )
 );

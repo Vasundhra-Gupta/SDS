@@ -39,7 +39,7 @@ import AdminLogin from "./admin/AdminLogin.jsx";
 import FundTracking from "./admin/FundTracking.jsx";
 import StudentVerification from "./admin/StudentVerification.jsx";
 import CounselorManagement from "./admin/CounselorManagement.jsx";
-
+import PublicDonationReport from "./PublicDonationReport.jsx";
 
 export {
     AboutPage,
@@ -76,4 +76,5 @@ export {
     CounselorManagement,
     FundTracking,
     StudentVerification,
+    PublicDonationReport,
 };
