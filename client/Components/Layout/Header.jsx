@@ -3,8 +3,8 @@ import { Menu, X, UserCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Sidebar from "./Sidebar";
-const LOGO =
-    "https://media-hosting.imagekit.io/63d3a656a7124b4a/WhatsApp%20Image%202025-03-31%20at%2013.09.12_7c304388.jpg?Expires=1838015211&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=aLYeftxqc36KxSSGsCppI~4QCdjANi0NZXkanlUmKR9ixKJHTsKJ940oMAVIOAqZygeegiLa8kSb4~8UOrdICDTnh2PlbwVYp93Zq4HXINFNBQBj5YSpbJFnlFe4DvSnZMb9SfihcWH~0k58Jd6UD~NcW54T6-c3hB3ZuChEDvOLbdbQirIZ1AV7E~8fM~g2LE3GzzydiamqwU10bWZw1-VAqqIo7B-z6UZOoo7JBgcLz9vdLQyS6HCGQCpV2D1GDEkpiG2YLjs3cb~vDHtfIxLYvSN3oYia9PZzsNUrtZqrF~yPOiRpC38wYRO0Sglele77lyxKLScJPhUxmCrDkw__";
+
+const LOGO = "https://media-hosting.imagekit.io/63d3a656a7124b4a/WhatsApp%20Image%202025-03-31%20at%2013.09.12_7c304388.jpg?Expires=1838015211&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=aLYeftxqc36KxSSGsCppI~4QCdjANi0NZXkanlUmKR9ixKJHTsKJ940oMAVIOAqZygeegiLa8kSb4~8UOrdICDTnh2PlbwVYp93Zq4HXINFNBQBj5YSpbJFnlFe4DvSnZMb9SfihcWH~0k58Jd6UD~NcW54T6-c3hB3ZuChEDvOLbdbQirIZ1AV7E~8fM~g2LE3GzzydiamqwU10bWZw1-VAqqIo7B-z6UZOoo7JBgcLz9vdLQyS6HCGQCpV2D1GDEkpiG2YLjs3cb~vDHtfIxLYvSN3oYia9PZzsNUrtZqrF~yPOiRpC38wYRO0Sglele77lyxKLScJPhUxmCrDkw__";
 
 export default function Header() {
     const [showSidebar, setShowSidebar] = useState(false);
@@ -14,15 +14,14 @@ export default function Header() {
         { to: "/about", name: "About" },
         { to: "/resource", name: "Resources" },
         { to: "/loans", name: "Loans" },
-        { to: "/counsellor-home", name: "Counsellors" },
         { to: "/scholarships", name: "Scholarships" },
         { to: "/contact", name: "Contact" },
     ];
 
     return (
-        <header className="bg-white h-[70px] shadow-sm sticky top-0 z-50 text-lg px-4">
-            <div className="mx-auto flex items-center justify-between p-4">
-                {/* Mobile Menu Button */}
+        <header className="bg-white h-[70px] shadow-sm sticky top-0 z-50 text-lg px-4 lg:px-10">
+            <div className="mx-auto flex items-center justify-between p-4 max-w-7xl">
+                {/* Mobile Menu Button - shown on small and medium screens */}
                 <motion.button
                     whileTap={{ scale: 0.95 }}
                     className=" text-gray-700 p-2 rounded-lg hover:bg-gray-100"
@@ -31,21 +30,23 @@ export default function Header() {
                     <Menu size={24} />
                 </motion.button>
 
-                <Link to={"/"}>
-                    <img
-                        className="w-10 h-10 rounded-full"
-                        src={LOGO}
-                        alt="EduSupport"
-                    />
-                </Link>
-                {/* Logo */}
-                <Link to="/">
-                    <p className="text-2xl font-bold text-blue-600">
-                        EduSupport
-                    </p>
-                </Link>
+                {/* Logo and Brand */}
+                <div className="flex items-center space-x-3">
+                    <Link to={"/"}>
+                        <img
+                            className="w-10 h-10 rounded-full"
+                            src={LOGO}
+                            alt="EduSupport"
+                        />
+                    </Link>
+                    <Link to="/">
+                        <p className=" hidden sm:block text-2xl font-bold text-blue-600">
+                            EduSupport
+                        </p>
+                    </Link>
+                </div>
 
-                {/* Desktop Navigation */}
+                {/* Desktop Navigation - shown on large screens and up */}
                 <nav className="hidden lg:flex space-x-1 mx-4">
                     {tabs.map((tab, index) => (
                         <motion.div
@@ -100,6 +101,8 @@ export default function Header() {
                     )}
                 </div>
             </div>
+            
+            {/* Sidebar - available on all screen sizes below lg */}
             <AnimatePresence>
                 {showSidebar && (
                     <Sidebar onClose={() => setShowSidebar(false)} />

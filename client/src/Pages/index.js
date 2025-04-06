@@ -25,7 +25,6 @@ import DonationSuggest from "./Donations/DonationSuggest.jsx";
 import PaymentPage from "./Donations/PaymentPage.jsx";
 
 import CounsellorHome from "./CounsellorPage/CounsellorHome.jsx";
-import CounsellorRegister from "./CounsellorPage/CounsellorRegister.jsx";
 
 import FAQPage from "./FAQPage.jsx";
 import DropoutGuidance from "./DropoutGuidance.jsx";
@@ -67,7 +66,6 @@ export {
     DropoutGuidance,
     HowItWorks,
     CounsellorHome,
-    CounsellorRegister,
     ResourceSelector,
     AdminLogin,
     AdminDashboard,

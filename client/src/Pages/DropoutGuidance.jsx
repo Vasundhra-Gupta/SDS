@@ -86,17 +86,20 @@ export default function DropoutGuidance() {
                 </div>
 
                 {/* Input Box */}
-                <form onSubmit={handleSubmit} className="flex mt-6 w-full">
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6 w-full"
+                >
                     <input
                         type="text"
                         placeholder="Type your problem..."
                         value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
-                        className="flex-1 p-3 border rounded-l-lg focus:ring focus:ring-blue-300 shadow-md text-lg"
+                        className="flex-1 p-3 border rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:ring focus:ring-blue-300 shadow-md text-base sm:text-lg"
                     />
                     <button
                         type="submit"
-                        className="bg-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-blue-700 transition shadow-md text-lg"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-blue-700 transition shadow-md text-base sm:text-lg"
                     >
                         Send 🚀
                     </button>
