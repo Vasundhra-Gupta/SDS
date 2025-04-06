@@ -25,7 +25,7 @@ export default function Header({ currentPage, isSubmitted }) {
   }, [isSubmitted, currentPage]);
 
   return (
-    <div className="flex items-center justify-between mx-4 my-6">
+    <div className="flex items-center justify-between px-12 mx-4 my-6">
       {steps.map((step, index) => (
         <div key={index} className="flex flex-col items-center">
           {/* Step Circle */}

@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <header className="bg-white h-[70px] shadow-sm sticky top-0 z-50 text-lg px-4 lg:px-10">
-            <div className="mx-auto flex items-center justify-between p-4 max-w-7xl">
+            <div className="mx-auto flex items-center justify-between p-4">
                 {/* Mobile Menu Button - shown on small and medium screens */}
                 <motion.button
                     whileTap={{ scale: 0.95 }}
