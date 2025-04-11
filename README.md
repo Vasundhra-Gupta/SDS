@@ -27,7 +27,7 @@ EduSupport follows a modern 3-tier architecture. The frontend, built in React wi
 5. **Access to Resources** – Students receive study materials, college/school resources, and peer-shared content.
 6. **Dropout Prevention** – Integrated with **Gemini API** for personalized AI-guided dropout support.
 7. **Scholarship & Loan Finder** – Smart suggestions based on branch, income, and academic details.
-8. **Secure Payments** – Seamless donation and disbursement via **Google Pay API**.
+8. **Secure Payments** – Seamless donation and disbursement via **Google Pay** through API.
 9. **Counseling & Webinars** – Admin-approved counselors provide 1-on-1 sessions or webinars for mental, academic, and career support.
 
 ---
